@@ -140,7 +140,7 @@ function openGoods(event) {
   const target = event.target;
   const restaurant = target.closest('.card-restaurant');
 
-  if (!localStorage.getItem('userData')) {
+  if (!localStorage.getItem('userData') && !loginInput.value) {
     toggleModalAuth()
   } else {
 
