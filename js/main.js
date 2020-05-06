@@ -140,6 +140,10 @@ function openGoods(event) {
   const target = event.target;
   const restaurant = target.closest('.card-restaurant');
 
+  if (!localStorage.getItem('userData')) {
+    toggleModalAuth()
+  } else {
+
   if (restaurant) {
     cardsMenu.textContent = '';
     containerPromo.classList.add('hide');
@@ -149,6 +153,7 @@ function openGoods(event) {
     createCardGood();
     createCardGood();
   }
+};
 };
 
 cartButton.addEventListener("click", toggleModal);
