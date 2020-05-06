@@ -140,7 +140,7 @@ function openGoods(event) {
   const target = event.target;
   const restaurant = target.closest('.card-restaurant');
 
-  if (!localStorage.getItem('userData') && !loginInput.value) {
+  if (!login && !localStorage.getItem('userData')) {
     toggleModalAuth()
   } else {
 
@@ -159,6 +159,8 @@ function openGoods(event) {
 cartButton.addEventListener("click", toggleModal);
 
 close.addEventListener("click", toggleModal);
+
+closeAuth.addEventListener('click', toggleModalAuth);
 
 cardsRestaurants.addEventListener('click', openGoods);
   logo.addEventListener('click', function () {
