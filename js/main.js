@@ -30,7 +30,7 @@ const getData = async function(url) {
   
 };
 
-getData('../db/partners.json');
+getData('./db/partners.json');
 
 function toggleModal() {
   modal.classList.toggle("is-open");
@@ -185,10 +185,10 @@ function openGoods(event) {
     menu.classList.remove('hide');
   
 
-    getData(`../db/${restaurant.dataset.products}`).then(function (data) {   
+    getData(`./db/${restaurant.dataset.products}`).then(function (data) {   
       data.forEach(createCardGood);
     });
-    getData('../db/partners.json').then(function (data) {
+    getData('./db/partners.json').then(function (data) {
       data.forEach(createRestaurantHeading);
 
      /* data.forEach(function(item) {
