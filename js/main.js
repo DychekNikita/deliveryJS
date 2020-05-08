@@ -67,8 +67,6 @@ function autorized() {
     checkAuth();
   };
 
-  console.log('Авторизован');
-
   userName.textContent = login;
   buttonAuth.style.display = 'none';
   userName.style.display = 'inline';
@@ -79,8 +77,6 @@ function autorized() {
 };
 
 function notAutorized() {
-  console.log('Не авторизован');
-
   function logIn(event) {
     if (!loginInput.value) {
       alert('Необходимо заполнить обязательные поля!')
@@ -223,7 +219,6 @@ function addToCart(event) {
       });
     }; 
     getCartData();
-    console.log(cart);
   };
 };
 
@@ -270,7 +265,6 @@ function changeCount(event) {
       renderCart();
       getCartData();      
     };
-
 };
 
 function init() {
@@ -296,7 +290,6 @@ clearCart.addEventListener('click', function() {
   toggleModal();
   localStorage.removeItem('cart');
 });
-
 
 cardsRestaurants.addEventListener('click', openGoods);
   logo.addEventListener('click', function () {
