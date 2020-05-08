@@ -26,7 +26,7 @@ const cartButton = document.querySelector("#cart-button"),
   clearCart = document.querySelector('.clear-cart');
 
 let login = localStorage.getItem('userData');
-const cart = [];
+let cart = [];
 
 const getData = async function(url) {
   const response = await fetch(url);   
@@ -35,10 +35,18 @@ const getData = async function(url) {
   }
 
   return await response.json();
-  
 };
 
 getData('./db/partners.json');
+
+if (localStorage.getItem('cart')) {
+  cart = JSON.parse(localStorage.getItem('cart'));
+}
+
+function getCartData() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cart = JSON.parse(localStorage.getItem('cart'));
+};
 
 function toggleModal() {
   modal.classList.toggle("is-open");
@@ -214,7 +222,8 @@ function addToCart(event) {
         count: 1
       });
     }; 
-    
+    getCartData();
+    console.log(cart);
   };
 };
 
@@ -258,9 +267,8 @@ function changeCount(event) {
         }
       }
       if (target.classList.contains('counter-plus')) food.count++;
-
       renderCart();
-      
+      getCartData();      
     };
 
 };
@@ -286,6 +294,7 @@ clearCart.addEventListener('click', function() {
   cart.length = 0;
   renderCart();
   toggleModal();
+  localStorage.removeItem('cart');
 });
 
 
